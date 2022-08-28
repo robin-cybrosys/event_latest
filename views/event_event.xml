@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="event_event_latest_form" model="ir.ui.view">
+            <field name="name">event_latest_inherit</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="priority" eval="4"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_row')]" position="after">
+                    <field name="university_name" string="University Name"/>
+                    <field name="university_code" string="University Code"/>
+
+                </xpath>
+                <xpath expr="//field[@name='organizer_id']" position="after">
+                    <field name="university_type" string="University Type"/>
+                    <field name="event_id" string="Event Name"/>
+                    <field name="event_type" string="Event Type"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
