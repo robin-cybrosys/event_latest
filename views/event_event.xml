@@ -6,19 +6,11 @@
             <field name="inherit_id" ref="event.view_event_form"/>
             <field name="priority" eval="4"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[hasclass('o_row')]" position="after">
-                    <field name="university_name" string="University Name"/>
-                    <field name="university_code" string="University Code"/>
-
-                </xpath>
-                <xpath expr="//field[@name='organizer_id']" position="after">
-                    <field name="university_type" string="University Type"/>
-                    <field name="event_id" string="Event Name"/>
-                    <field name="event_type" string="Event Type"/>
+                <xpath expr="//div[hasclass('o_row')]" position="after" >
+                    <field name="name_id" invisible="1"/>
                 </xpath>
             </field>
         </record>
-
     </data>
 </odoo>
 

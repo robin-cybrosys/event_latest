@@ -1,15 +1,66 @@
 <odoo>
     <data>
+        <record model="ir.actions.act_window" id="event_menu_action">
+            <field name="name">Upcoming Events</field>
+            <field name="res_model">event.latest</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--Title menu-->
+        <menuitem name="University Events" id="event_latest_root_menu"
+                  sequence="-10" action="event_menu_action"/>
 
-        <record id="event_event_latest_form" model="ir.ui.view">
-            <field name="name">event_latest_inherit</field>
-            <field name="model">event.event</field>
-            <field name="inherit_id" ref="event.view_event_form"/>
-            <field name="priority" eval="4"/>
+        <record model="ir.ui.view" id="view_event_latest_form">
+            <field name="name">event.latest.form</field>
+            <field name="model">event.latest</field>
             <field name="arch" type="xml">
-                <xpath expr="//div[hasclass('o_row')]" position="inside">
-                    <field name="university_name" nolabel="1" class="oe_inline"/>
-                </xpath>
+                <form string="Events">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title" name="event_type_title">
+                            <label for="university_name"
+                                   string="University Name"/>
+                            <h1>
+                                <field name="university_name"
+                                       placeholder="e.g. Calicut University"
+                                />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="university_code"/>
+                                <field name="university_type"/>
+                            </group>
+                            <group>
+                                <field name="event_id"/>
+                                <field name="event_type"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                            <field name="event_ids" string="Events"
+                                   placeholder="Events">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="date_begin"/>
+                                    <field name="date_end"/>
+<!--                                    <field name="description"/>-->
+                                </tree>
+<!--                                <form>-->
+<!--                                    <group string="Medicine">-->
+<!--                                        <field name="medicine_id"/>-->
+<!--                                        <field name="dosage"/>-->
+<!--                                    </group>-->
+<!--                                    <group string="Usage">-->
+<!--                                        <field name="days"/>-->
+<!--                                        <field name="description"/>-->
+<!--                                    </group>-->
+<!--                                </form>-->
+                            </field>
+
+                        </group>
+                    </sheet>
+                </form>
             </field>
         </record>
 

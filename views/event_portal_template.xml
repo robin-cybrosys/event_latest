@@ -1,0 +1,98 @@
+<odoo>
+    <template id="portal_my_home_menu_events"
+              name="Portal layout : upcoming events"
+              inherit_id="portal.portal_breadcrumbs" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'event'"
+                t-attf-class="breadcrumb-item #{'active ' if not event else ''}">
+                <a t-if="event" t-attf-href="/my/events?{{ keep_query() }}">
+                    Employee Payslip1
+                </a>
+                <t t-else="">Employee Event</t>
+            </li>
+            <li t-if="event" class="breadcrumb-item active">
+                <t t-esc="event.name" t-if="event.name != '/'"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_payslip" name="Show Events"
+              inherit_id="portal.portal_my_home" customize_show="True"
+              priority="1">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Events</t>
+                <t t-set="url" t-value="'/my/events'"/>
+                <t t-set="placeholder_count" t-value="'event_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_payslips" name="My Events">
+        <t t-call="portal.portal_layout">
+            <t t-if="not events">
+                <p>There are currently no events for your account.</p>
+            </t>
+            <t t-if="events" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        
+                        <th>Event</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th class='d-none d-md-table-cell'>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="events" t-as="event">
+                        <tr>
+<!--                            <td >-->
+<!--                                <a t-attf-href="/print/report/#{event.id}">-->
+<!--                                    <t t-esc="event.number" />-->
+<!--                                </a>-->
+<!--                            </td>-->
+                            <td>
+                                <a t-attf-href="/print/report/#{event.id}" >
+                                    <t t-esc="event.name" />
+                                </a>
+                            </td>
+<!--                            <td>-->
+<!--                                <span t-field="event.contract_id"/>-->
+<!--                            </td>-->
+                            <td>
+                                <span t-field="event.date_begin"/>
+                            </td>
+                            <td>
+                                <span t-field="event.date_end"/>
+                            </td>
+                            <td class="tx_status">
+                                <t t-if="event.state == 'done' ">
+                                    <span class="badge badge-pill badge-success">
+                                        <i class="fa fa-fw fa-check"
+                                           aria-label="Opened"
+                                           title="Confirm"
+                                           role="img"/>
+                                        <span class="d-none d-md-inline">
+                                            Confirmed
+                                        </span>
+                                    </span>
+                                </t>
+
+                                <t t-if="event.state == 'cancel'">
+                                    <span class="badge badge-pill badge-danger">
+                                        <i class="fa fa-fw fa-remove"
+                                           aria-label="Cancelled"
+                                           title="Cancelled" role="img"/>
+                                        <span class="d-none d-md-inline">
+                                            Cancelled
+                                        </span>
+                                    </span>
+                                </t>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+</odoo>

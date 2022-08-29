@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+event_latest.access_event_latest,access_event_latest,event_latest.model_event_latest,base.group_user,1,1,1,1

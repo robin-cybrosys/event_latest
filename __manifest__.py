@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 {
     'name': "Upcoming Events",
     'application': "True",
@@ -14,6 +13,8 @@
         'event', 'website_event', 'portal', 'utm'],
     'data': [
         'views/event_event.xml',
-        # 'views/event_latest.xml'
+        'security/ir.model.access.csv',
+        'views/event_portal_template.xml',
+        'views/event_latest.xml'
     ],
 }
