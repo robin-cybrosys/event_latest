@@ -50,64 +50,20 @@
 
                             <td>
                                 <!--                                <a t-attf-href="/events/view/#{event.id}">-->
-                                <t t-esc="event.university_name"/>
+<!--                                <a t-attf-href="/events/view/#{event.event_id.id}">-->
+<!--                                <t t-esc="event.university_name"/>-->
+                                <button string="Click" custom="click"/>
 
                             </td>
                             <td>
-                                <a>
-                                    <t type="button" t-esc="event.event_id.name"
-                                       data-toggle="modal"
-                                       data-target="#myModal"/>
-                                </a>
-                                <button type="button"
-                                        class="btn btn-info btn-md"
-                                        data-toggle="modal"
-                                        data-target="#myModal">
+<!--                                <a class="dropdown-toggle o-no-caret" data-toggle="dropdown" data-display="static" aria-expanded="false"-->
+<!--               title="Event" href="#" role="button" id="test_button">-->
+<!--                <i class="fa fa-qrcode" role="img" aria-label="QR"/>-->
+<!--            </a>-->
+
+                                <a t-attf-href="#" role="button" id="test_button">
                                     <t t-esc="event.event_id.name"/>
-                                </button>
-
-                                <!-- Modal -->
-                                <div id="myModal" class="modal fade"
-                                     role="dialog">
-                                    <div class="modal-dialog">
-
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button"
-                                                        class="close"
-                                                        data-dismiss="modal">x
-                                                </button>
-                                                <!--                                                <h4 class="modal-title">Modal-->
-                                                <!--                                                    Header-->
-                                                <!--                                                </h4>-->
-                                            </div>
-                                            <div class="modal-body">
-
-                                                <span t-field="event.event_id"/>
-                                                <!--                        <span t-field="event.date_begin"/>-->
-                                                <!--                        <span t-field="event.date_end"/>-->
-                                                <!--                        <span t-field="event.organizer_id"/>-->
-                                                <!--                        <span t-field="event.user_id"/>-->
-                                                <!--                        <span t-field="event.address_id"/>-->
-                                                <!--                    </t>-->
-                                                <!--                </div>-->
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button"
-                                                        class="btn btn-default"
-                                                        data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!--                                </a>-->
-                                <!--                                <a t-attf-href="/events/view/#{event.event_id.id}">-->
-                                <!--                                    <t t-esc="event.event_id.name"/>-->
-                                <!--                                </a>-->
+                                </a>
                             </td>
                             <td>
                                 <span t-field="event.start_date"/>

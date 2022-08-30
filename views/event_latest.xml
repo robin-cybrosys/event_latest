@@ -59,6 +59,7 @@
                 </form>
             </field>
         </record>
+
         <record model="ir.ui.view" id="view_event_latest_list">
             <field name="name">event.latest.list</field>
             <field name="model">event.latest</field>
