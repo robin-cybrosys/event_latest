@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91252754-4a12-4f21-9b42-2cef753291ce" name="Changes" comment="" />
+    <list default="true" id="91252754-4a12-4f21-9b42-2cef753291ce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/sequence_data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/portal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/event_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/event_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/event_latest.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/event_latest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/event_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/event_event.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/event_latest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/event_latest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/event_portal_template.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/event_portal_template.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

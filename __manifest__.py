@@ -13,6 +13,7 @@
         'event', 'website_event', 'portal', 'utm'],
     'data': [
         'views/event_event.xml',
+        'data/sequence_data.xml',
         'security/ir.model.access.csv',
         'views/event_portal_template.xml',
         'views/event_latest.xml'

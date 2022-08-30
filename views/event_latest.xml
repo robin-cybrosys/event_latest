@@ -15,6 +15,10 @@
             <field name="arch" type="xml">
                 <form string="Events">
                     <header>
+                        <button class="btn-primary" name="event_start_btn" type="object" string="Start" attrs="{'invisible': [('state', 'in', ['ongoing', 'expired'])]}">
+                        </button>
+                        <button class="btn-primary" name="event_expire_btn" type="object" string="Expire" attrs="{'invisible': [('state', 'in', ['draft', 'expired'])]}">
+                        </button>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
@@ -42,28 +46,33 @@
                                    placeholder="Events">
                                 <tree editable="bottom">
                                     <field name="name"/>
+                                    <field name="company_id" invisible="1"/>
+                                    <field name="organizer_id"/>
+                                    <field name="user_id"/>
+                                    <field name="address_id"/>
                                     <field name="date_begin"/>
                                     <field name="date_end"/>
-<!--                                    <field name="description"/>-->
                                 </tree>
-<!--                                <form>-->
-<!--                                    <group string="Medicine">-->
-<!--                                        <field name="medicine_id"/>-->
-<!--                                        <field name="dosage"/>-->
-<!--                                    </group>-->
-<!--                                    <group string="Usage">-->
-<!--                                        <field name="days"/>-->
-<!--                                        <field name="description"/>-->
-<!--                                    </group>-->
-<!--                                </form>-->
                             </field>
-
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-
+        <record model="ir.ui.view" id="view_event_latest_list">
+            <field name="name">event.latest.list</field>
+            <field name="model">event.latest</field>
+            <field name="arch" type="xml">
+                <tree string="Events">
+                    <field name="university_name"/>
+                    <field name="event_id"/>
+                    <field name="event_type"/>
+                    <field name="state"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
     </data>
 </odoo>
 

@@ -6,9 +6,9 @@
             <li t-if="page_name == 'event'"
                 t-attf-class="breadcrumb-item #{'active ' if not event else ''}">
                 <a t-if="event" t-attf-href="/my/events?{{ keep_query() }}">
-                    Employee Payslip1
+
                 </a>
-                <t t-else="">Employee Event</t>
+                <t t-else="">Latest Events</t>
             </li>
             <li t-if="event" class="breadcrumb-item active">
                 <t t-esc="event.name" t-if="event.name != '/'"/>
@@ -28,7 +28,7 @@
         </xpath>
     </template>
 
-    <template id="portal_my_payslips" name="My Events">
+    <template id="portal_my_events" name="My Events">
         <t t-call="portal.portal_layout">
             <t t-if="not events">
                 <p>There are currently no events for your account.</p>
@@ -36,7 +36,8 @@
             <t t-if="events" t-call="portal.portal_table">
                 <thead>
                     <tr class="active">
-                        
+
+                        <th>University</th>
                         <th>Event</th>
                         <th>From</th>
                         <th>To</th>
@@ -46,45 +47,94 @@
                 <tbody>
                     <t t-foreach="events" t-as="event">
                         <tr>
-<!--                            <td >-->
-<!--                                <a t-attf-href="/print/report/#{event.id}">-->
-<!--                                    <t t-esc="event.number" />-->
-<!--                                </a>-->
-<!--                            </td>-->
+
                             <td>
-                                <a t-attf-href="/print/report/#{event.id}" >
-                                    <t t-esc="event.name" />
+                                <!--                                <a t-attf-href="/events/view/#{event.id}">-->
+                                <t t-esc="event.university_name"/>
+
+                            </td>
+                            <td>
+                                <a>
+                                    <t type="button" t-esc="event.event_id.name"
+                                       data-toggle="modal"
+                                       data-target="#myModal"/>
                                 </a>
+                                <button type="button"
+                                        class="btn btn-info btn-md"
+                                        data-toggle="modal"
+                                        data-target="#myModal">
+                                    <t t-esc="event.event_id.name"/>
+                                </button>
+
+                                <!-- Modal -->
+                                <div id="myModal" class="modal fade"
+                                     role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button"
+                                                        class="close"
+                                                        data-dismiss="modal">x
+                                                </button>
+                                                <!--                                                <h4 class="modal-title">Modal-->
+                                                <!--                                                    Header-->
+                                                <!--                                                </h4>-->
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <span t-field="event.event_id"/>
+                                                <!--                        <span t-field="event.date_begin"/>-->
+                                                <!--                        <span t-field="event.date_end"/>-->
+                                                <!--                        <span t-field="event.organizer_id"/>-->
+                                                <!--                        <span t-field="event.user_id"/>-->
+                                                <!--                        <span t-field="event.address_id"/>-->
+                                                <!--                    </t>-->
+                                                <!--                </div>-->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button"
+                                                        class="btn btn-default"
+                                                        data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--                                </a>-->
+                                <!--                                <a t-attf-href="/events/view/#{event.event_id.id}">-->
+                                <!--                                    <t t-esc="event.event_id.name"/>-->
+                                <!--                                </a>-->
                             </td>
-<!--                            <td>-->
-<!--                                <span t-field="event.contract_id"/>-->
-<!--                            </td>-->
                             <td>
-                                <span t-field="event.date_begin"/>
+                                <span t-field="event.start_date"/>
                             </td>
                             <td>
-                                <span t-field="event.date_end"/>
+                                <span t-field="event.start_date"/>
                             </td>
                             <td class="tx_status">
-                                <t t-if="event.state == 'done' ">
+                                <t t-if="event.state == 'ongoing' ">
                                     <span class="badge badge-pill badge-success">
                                         <i class="fa fa-fw fa-check"
                                            aria-label="Opened"
-                                           title="Confirm"
+                                           title="Ongoing"
                                            role="img"/>
                                         <span class="d-none d-md-inline">
-                                            Confirmed
+                                            Ongoing
                                         </span>
                                     </span>
                                 </t>
 
-                                <t t-if="event.state == 'cancel'">
+                                <t t-if="event.state == 'expired'">
                                     <span class="badge badge-pill badge-danger">
                                         <i class="fa fa-fw fa-remove"
-                                           aria-label="Cancelled"
-                                           title="Cancelled" role="img"/>
+                                           aria-label="Expired"
+                                           title="Expired" role="img"/>
                                         <span class="d-none d-md-inline">
-                                            Cancelled
+                                            Expired
                                         </span>
                                     </span>
                                 </t>
@@ -93,6 +143,25 @@
                     </t>
                 </tbody>
             </t>
+        </t>
+    </template>
+    <template id="your_template">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure"/>
+                <div class="container">
+                    <t t-foreach="events" t-as="event">
+                        <!--Your Contents-->
+                        <h1>Foo</h1>
+                        <span t-field="event.name"/>
+                        <span t-field="event.date_begin"/>
+                        <span t-field="event.date_end"/>
+                        <span t-field="event.organizer_id"/>
+                        <span t-field="event.user_id"/>
+                        <span t-field="event.address_id"/>
+                    </t>
+                </div>
+            </div>
         </t>
     </template>
 </odoo>

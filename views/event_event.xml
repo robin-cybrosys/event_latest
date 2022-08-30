@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[hasclass('o_row')]" position="after" >
                     <field name="name_id" invisible="1"/>
+<!--                    <field name="company_id" invisible="1"/>-->
                 </xpath>
             </field>
         </record>
