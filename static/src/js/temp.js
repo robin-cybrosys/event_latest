@@ -1,4 +1,4 @@
-odoo.define('event_latest.event_details', function (require) {
+odoo.define('event_latest.temp', function (require) {
     "use strict";
     var core = require('web.core');
     var Widget = require('web.Widget');
@@ -32,8 +32,8 @@ odoo.define('event_latest.event_details', function (require) {
                 args: [data]
                 }).then(function(result){
                 console.log(result)
-                    document.getElementById("ItemPreview").src = "data:image/png;base64," + result;
-                    document.getElementById("b_download").href = "data:image/png;base64," + result;
+                    $('#ItemPreview').attr("src","data:image/png;base64," + result);
+                    $('#b_download').attr("href","data:image/png;base64," + result);
                     $('#ItemPreview').show();
                     $('#BtnDownload').show();
                 });

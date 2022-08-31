@@ -49,20 +49,20 @@
                         <tr>
 
                             <td>
-                                <!--                                <a t-attf-href="/events/view/#{event.id}">-->
-<!--                                <a t-attf-href="/events/view/#{event.event_id.id}">-->
-<!--                                <t t-esc="event.university_name"/>-->
-                                <button string="Click" custom="click"/>
+                                <!--<a t-attf-href="/events/view/#{event.event_id.id}">-->
+                                <t t-esc="event.university_name"/>
 
                             </td>
                             <td>
-<!--                                <a class="dropdown-toggle o-no-caret" data-toggle="dropdown" data-display="static" aria-expanded="false"-->
-<!--               title="Event" href="#" role="button" id="test_button">-->
-<!--                <i class="fa fa-qrcode" role="img" aria-label="QR"/>-->
-<!--            </a>-->
 
-                                <a t-attf-href="#" role="button" id="test_button">
+
+                                <a t-attf-href="/events/view/#{event.event_id.id}">
                                     <t t-esc="event.event_id.name"/>
+                                <t t-extends="event_latest.portal_my_events">
+                                    <t t-jquery="ul" t-operation="append">
+                                        <li>new element</li>
+                                    </t>
+                                </t>
                                 </a>
                             </td>
                             <td>
@@ -120,4 +120,50 @@
             </div>
         </t>
     </template>
+    <template id="product_configuration_inherit" inherit_id="website_sale.product">
+            <xpath expr="//hr[@t-if='product.description_sale']" position="before">
+                <div t-if="product.attribute_line_ids.ids">
+                    <a  id="hidden_box_btn"  class="btn btn-primary btn-lg o_default_snippet_text">configure</a>
+                </div>
+                <div   id="hidden_box" class="modal fade">
+                    <div class="modal-dialog modal-content" style="border:solid 5px red; min-height:200px;max-width:400px;">
+                        <div class="modal-body" id="pop_html">
+                            <a href="#" class="o_popup_btn_close o_not_editable o_default_snippet_text pull-right" data-dismiss="modal" style="font-size:30px">×</a>
+                            <br/>
+                            <h2 style="text-align:center; font-size 24px; font-weight:bold" class="o_default_snippet_text">Great, Let's Get Started</h2>
+
+                            <form action="/web/product/configure" method="GET">
+                                <div align="center">
+                                    <input type="hidden" name="product_id"  t-att-value="product.id"/>
+
+                                        <t t-foreach="product.attribute_line_ids" t-as="atr_val">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <t t-esc="atr_val.display_name"/>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" t-att-name="atr_val.id" class="form-control" style="margin-top:15px"/>
+                                                    </td>
+                                                 </tr>
+
+                                            </table>
+                                        </t>
+                                    <input type="date" name="date" class="form-control" style="margin-top:15px"/>
+                                </div>
+                                <div align="center" style="margin-top:15px">
+                                    <input type="submit" value="Configure" class="btn btn-default btn-primary pull-center mb32"/>
+                                </div>
+                            </form>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+        </xpath>
+        </template>
 </odoo>

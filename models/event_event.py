@@ -6,6 +6,3 @@ class Event(models.Model):
 
     name_id = fields.Many2one(
         'event.latest', string='event')
-    # company_id = fields.Many2one(
-    #     'res.company', required=True, default=lambda self: self.env.company)
-

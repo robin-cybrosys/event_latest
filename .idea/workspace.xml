@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91252754-4a12-4f21-9b42-2cef753291ce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/description/banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/description/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/description/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/description/qr_generator.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/description/screenshot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/src/js/event_details.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/src/scss/qr_generator.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/src/xml/event_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/src/js/temp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/portal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/event_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/event_event.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/event_latest.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/event_latest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/security/ir.model.access.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/event_latest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/event_latest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/description/banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/description/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/description/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/description/qr_generator.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/description/screenshot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/src/js/event_details.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/js/event_details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/src/xml/event_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/xml/event_details.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/event_portal_template.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/event_portal_template.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

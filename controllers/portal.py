@@ -37,13 +37,13 @@ class EventPortal(CustomerPortal):
         return request.render("event_latest.portal_my_events",
                               values)
 
-    @http.route(['/events/view/<int:event_id>'], type='http', auth="user",
-                website=True)
-    def event_report(self, event_id):
-        event = request.env['event.event'].search(
-            # ('state', 'in', ('ongoing', 'expired')),
-            [('id', '=', event_id)])
-        value = {
-            'events': event
-        }
-        return request.render('event_latest.your_template',value)
+    # @http.route(['/events/view/<int:event_id>'], type='http', auth="user",
+    #             website=True)
+    # def event_report(self, event_id):
+    #     event = request.env['event.event'].search(
+    #         # ('state', 'in', ('ongoing', 'expired')),
+    #         [('id', '=', event_id)])
+    #     value = {
+    #         'events': event
+    #     }
+    #     return request.render('event_latest.your_template',value)

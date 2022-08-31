@@ -20,8 +20,8 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'event_latest/static/src/js/event_details.js',
-            'event_latest/static/src/scss/qr_generator.scss'
+            # 'event_latest/static/src/js/event_details.js',
+            'event_latest/static/src/js/temp.js',
         ],
         'web.assets_qweb': [
             'event_latest/static/src/xml/event_details.xml'
