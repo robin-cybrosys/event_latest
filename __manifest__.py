@@ -9,7 +9,7 @@
     'category': 'Uncategorized',
     'version': '15.0.1.0.0',
     'depends': [
-        'base', 'website', 'base_setup',
+        'base','web', 'website', 'base_setup',
         'event', 'website_event', 'portal', 'utm'],
     'data': [
         'views/event_event.xml',
@@ -19,12 +19,14 @@
         'views/event_latest.xml'
     ],
     'assets': {
-        'web.assets_backend': [
-            # 'event_latest/static/src/js/event_details.js',
-            'event_latest/static/src/js/temp.js',
+        'web.assets_frontend': [
+            # 'event_latest/static/src/js/*',
+            'event_latest/static/src/js/event_details.js',
+            # 'event_latest/static/src/js/temp.js'
         ],
-        'web.assets_qweb': [
-            'event_latest/static/src/xml/event_details.xml'
-        ],
+
+        # 'web.assets_qweb': [
+        #     'event_latest/static/src/xml/event_details.xml'
+        # ],
     },
 }

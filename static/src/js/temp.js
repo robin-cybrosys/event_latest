@@ -1,4 +1,4 @@
-odoo.define('event_latest.temp', function (require) {
+odoo.define('qr_generator.qr_systray', function (require) {
     "use strict";
     var core = require('web.core');
     var Widget = require('web.Widget');
@@ -7,7 +7,7 @@ odoo.define('event_latest.temp', function (require) {
     var _t = core._t;
     var QWeb = core.qweb
     var QRWidget = Widget.extend({
-        template: 'EventDetails',
+        template: 'QRSystray',
         events: {
            "click": "on_click",
            "click #qr_clear": "fn_clear",
@@ -43,11 +43,7 @@ odoo.define('event_latest.temp', function (require) {
                 $('#BtnDownload').hide();
             }
         },
-       fn_clear: function() {
-            $("#ip_link").val("");
-            $('#ItemPreview').hide();
-            $('#BtnDownload').hide();
-        },
+       
     });
     SystrayMenu.Items.push(QRWidget);
     return {

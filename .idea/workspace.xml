@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91252754-4a12-4f21-9b42-2cef753291ce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/src/js/temp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/portal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/event_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/event_event.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/event_latest.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/event_latest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/security/ir.model.access.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/description/banner.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/description/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/description/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/description/qr_generator.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/description/screenshot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/src/js/event_details.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/js/event_details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/src/xml/event_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/xml/event_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/event_portal_template.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/event_portal_template.xml" afterDir="false" />
-    </list>
+    <list default="true" id="91252754-4a12-4f21-9b42-2cef753291ce" name="Changes" comment="last :aug31" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +9,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2DyubdvnsSfvV1OrYua1zQwadIM" />
   <component name="ProjectViewState">
@@ -73,6 +60,14 @@
       <option name="presentableId" value="Default" />
       <updated>1661683717689</updated>
     </task>
+    <task id="LOCAL-00001" summary="last :aug31">
+      <created>1661952923718</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661952923718</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -85,5 +80,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="last :aug31" />
+    <option name="LAST_COMMIT_MESSAGE" value="last :aug31" />
   </component>
 </project>

@@ -1,56 +1,36 @@
-odoo.define('event_latest.event_details', function (require) {
-    "use strict";
-    var core = require('web.core');
-    var Widget = require('web.Widget');
-    var SystrayMenu = require('web.SystrayMenu');
-    var rpc = require('web.rpc')
-    var _t = core._t;
-    var QWeb = core.qweb
-    var QRWidget = Widget.extend({
-        template: 'EventDetails',
-        events: {
-           "click": "on_click",
-           "click #qr_clear": "fn_clear",
-           "click #qr_generate": "fn_generate",
-       },
-       start: function(){
-            this.$('#alert').hide();
-            this.$('#ItemPreview').hide();
-            this.$('#BtnDownload').hide();
-        },
-       on_click: function (event) {
-            if ($(event.target).is('i') === false) {
-                event.stopPropagation();
-            }
-        },
-        fn_generate: function() {
-            var data = $('#ip_link').val();
-            if (data != "") {
-                rpc.query({
-                model: 'qr.code.generator',
-                method: 'generate_qr',
-                args: [data]
-                }).then(function(result){
-                console.log(result)
-                    document.getElementById("ItemPreview").src = "data:image/png;base64," + result;
-                    document.getElementById("b_download").href = "data:image/png;base64," + result;
-                    $('#ItemPreview').show();
-                    $('#BtnDownload').show();
-                });
-            }
-            else {
-                $('#ItemPreview').hide();
-                $('#BtnDownload').hide();
-            }
-        },
-       fn_clear: function() {
-            $("#ip_link").val("");
-            $('#ItemPreview').hide();
-            $('#BtnDownload').hide();
-        },
+odoo.define("event_latest.event_details", function (require) {
+  "use strict";
+  var core = require("web.core");
+  var Widget = require("web.Widget");
+  console.log("aaaaa");
+
+   $(document).on("mouseover", "#popover", function (event) {
+//$(document).ready(function(event) {
+console.log("start");
+    var self = this;
+//    console.log("sssss", event);
+//    console.log("11", self.parentElement.parentElement);
+    var item_text = "";
+//    console.log("event.target.parentElement.children", event.target);
+    if (self.parentElement.parentElement.children[3]) {
+//      console.log("1111", self.parentElement.children);
+      item_text =
+        "Name : "+ self.parentElement.parentElement.children[1].outerText +"<br/>"+
+        "Start Date : "+ self.parentElement.parentElement.children[2].outerText +"<br/>"+
+        "End Date : "+ self.parentElement.parentElement.children[3].outerText +"<br/>"+
+        "Organizer : "+ self.parentElement.parentElement.children[4].outerText +"<br/>"+
+        "Responsible : "+ self.parentElement.parentElement.children[5].outerText;
+    }
+
+    $(this).popover({
+      html: true,
+      placement: "right",
+      trigger: "hover",
+      title: "Event Details",
+      content: "<span>" + item_text + "</span>",
     });
-    SystrayMenu.Items.push(QRWidget);
-    return {
-        QRWidget: QRWidget,
-    };
+
+//    console.log("test1");
+    //   $('[data-toggle="popover"]').popover();
+  });
 });
