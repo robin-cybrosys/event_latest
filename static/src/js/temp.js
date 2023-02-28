@@ -7,7 +7,7 @@ odoo.define('qr_generator.qr_systray', function (require) {
     var _t = core._t;
     var QWeb = core.qweb
     var QRWidget = Widget.extend({
-        template: 'QRSystray',
+        // template: 'QRSystray',
         events: {
            "click": "on_click",
            "click #qr_clear": "fn_clear",

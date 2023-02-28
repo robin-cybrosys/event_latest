@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="portal_my_home_menu_events"
               name="Portal layout : upcoming events"
@@ -6,9 +7,9 @@
             <li t-if="page_name == 'event'"
                 t-attf-class="breadcrumb-item #{'active ' if not event else ''}">
                 <a t-if="event" t-attf-href="/my/events?{{ keep_query() }}">
-
+                    Events1
                 </a>
-                <t t-else="">Latest Events</t>
+                <t t-else="">Latest Events2</t>
             </li>
             <li t-if="event" class="breadcrumb-item active">
                 <t t-esc="event.name" t-if="event.name != '/'"/>
@@ -30,8 +31,10 @@
 
     <template id="portal_my_events"  name="My Events">
         <t t-call="portal.portal_layout">
-            <t t-if="not events">
-                <p>There are currently no events for your account.</p>
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Quotations</t>
             </t>
             <t t-if="events" t-call="portal.portal_table">
                 <thead>
@@ -124,6 +127,9 @@
                     </t>
                 </tbody>
             </t>
+            <p t-else="">
+                There are currently no events for your account.
+            </p>
         </t>
     </template>
 <!--    <template id="your_template">-->

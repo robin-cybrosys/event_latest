@@ -22,7 +22,6 @@
         'web.assets_frontend': [
             # 'event_latest/static/src/js/*',
             'event_latest/static/src/js/event_details.js',
-            # 'event_latest/static/src/js/temp.js'
         ],
 
         # 'web.assets_qweb': [

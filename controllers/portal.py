@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-from odoo import http, SUPERUSER_ID, fields
+
+from odoo import fields, http
+from odoo.addons.portal.controllers import portal
 from odoo.http import request
-from odoo.addons.portal.controllers.portal import CustomerPortal
 
 
-class EventPortal(CustomerPortal):
+class EventPortal(portal.CustomerPortal):
 
     def _prepare_home_portal_values(self, counters):
         values = super()._prepare_home_portal_values(counters)
@@ -25,12 +26,67 @@ class EventPortal(CustomerPortal):
              fields.Date.subtract(fields.Date.today(), months=3)),
             ('state', 'in', ('ongoing', 'expired'))]
 
+    # def _prepare_event_portal_rendering_values(
+    #         self, page=1, date_begin=None, date_end=None, sortby=None,
+    #         event_page=False, **kwargs
+    # ):
+    #     SaleOrder = request.env['sale.order']
+    #
+    #     # if not sortby:
+    #     #     sortby = 'date'
+    #
+    #     partner = request.env.user.partner_id
+    #     values = self._prepare_portal_layout_values()
+    #
+    #     if event_page:
+    #         url = "/my/quotes"
+    #         domain = self._prepare_quotations_domain(partner)
+    #     else:
+    #         url = "/my/orders"
+    #         domain = self._prepare_orders_domain(partner)
+    #
+    #     # searchbar_sortings = self._get_sale_searchbar_sortings()
+    #     #
+    #     # sort_order = searchbar_sortings[sortby]['order']
+    #     #
+    #     # if date_begin and date_end:
+    #     #     domain += [('create_date', '>', date_begin),
+    #     #                ('create_date', '<=', date_end)]
+    #
+    #     # pager_values = portal_pager(
+    #     #     url=url,
+    #     #     total=SaleOrder.search_count(domain),
+    #     #     page=page,
+    #     #     step=self._items_per_page,
+    #     #     url_args={'date_begin': date_begin, 'date_end': date_end,
+    #     #               'sortby': sortby},
+    #     # )
+    #     # orders = SaleOrder.search(domain, order=sort_order,
+    #     #                           limit=self._items_per_page,
+    #     #                           offset=pager_values['offset'])
+    #
+    #     values.update({
+    #         # 'date': date_begin,
+    #         # 'quotations': orders.sudo() if event_page else SaleOrder,
+    #         # 'orders': orders.sudo() if not event_page else SaleOrder,
+    #         'page_name': 'quote' if event_page else 'order',
+    #         # 'pager': pager_values,
+    #         'default_url': url,
+    #         # 'searchbar_sortings': searchbar_sortings,
+    #         # 'sortby': sortby,
+    #     })
+    #
+    #     return values
+
     @http.route(['/my/events'], type='http', auth="user", website=True)
     def portal_my_events(self):
+        # values = self._prepare_event_portal_rendering_values(
+        #     event_page=True, **kwargs)
         user = request.env.user
         domain = self._get_events_domain()
         events = request.env['event.latest'].search(domain)
         values = {
+            'default_url' : "/my/events",
             'events': events,
             'page_name': 'event',
         }
